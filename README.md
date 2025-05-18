@@ -40,6 +40,33 @@ en la base de datos debe existir un Administardor: usuario: fajoce@gmail.com - c
 # Asignaciones
 ![image](https://github.com/user-attachments/assets/46dbb48e-e786-4384-b2b7-84aff5373ce9)
 
+# Como Alumnos solo podras:
+- ver tus datos
+- ![image](https://github.com/user-attachments/assets/9db1a458-0138-4725-8e8e-5afa5883c185)
+
+- Ver Alumnos de tu mismo curso
+- ![image](https://github.com/user-attachments/assets/db937b18-95da-4d9d-8783-440fdd40e3ce)
+- Exportar los a Excel
+- ![image](https://github.com/user-attachments/assets/2e84c291-657d-4705-a87b-09b6e4c96e4f)
+
+  # Ver Docentes de las asignaturas tomadas por ti
+  ![image](https://github.com/user-attachments/assets/7a219056-11b0-49d8-be71-50de20ebc4bc)
+  # Ver tu matricula
+  ![image](https://github.com/user-attachments/assets/85bdf05c-a95c-4b49-9f92-0de5d0cbcef5)
+
+  # Ver el detalle de la misma
+  ![image](https://github.com/user-attachments/assets/0bc6d949-5c16-443c-a13e-7e5c683687c1)
+  e imprimira
+  ![image](https://github.com/user-attachments/assets/7d9d9596-2700-4921-9d1f-ba3c9d32e6d3)
+
+
+
+
+
+
+
+
+
 
 
 
