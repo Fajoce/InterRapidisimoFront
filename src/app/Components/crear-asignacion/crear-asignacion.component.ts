@@ -56,4 +56,7 @@ export class CrearAsignacionComponent {
       this.router.navigate(['/asignaciones']); // Ajusta según tu ruta
     });
   }
+      cancelar(): void {
+  this.router.navigate(['/asignaciones']);
+}
 }
