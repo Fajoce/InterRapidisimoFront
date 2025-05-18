@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Crear Materia</h2>
+
+  <form [formGroup]="materiaForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre de la materia</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      <div *ngIf="materiaForm.get('name')?.touched && materiaForm.get('name')?.invalid" class="text-danger">
+        El nombre es obligatorio y debe tener al menos 3 caracteres.
+      </div>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="materiaForm.invalid">Guardar</button>
+    <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/materias'])">Cancelar</button>
+  </form>
+</div>

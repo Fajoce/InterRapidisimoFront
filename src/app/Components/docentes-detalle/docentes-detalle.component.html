@@ -1,0 +1,15 @@
+<div class="container mt-5" *ngIf="docente">
+  <div class="card shadow">
+    <div class="card-header bg-info text-white">
+      <h4 class="mb-0">Detalle del Docente</h4>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ docente.docenteID }}</p>
+      <p><strong>Nombre:</strong> {{ docente.nombreDocente }}</p>
+      <p><strong>Email:</strong> {{ docente.usuarioID }}</p>
+      <p><strong>Especialidad:</strong> {{ docente.especialidad }}</p>
+      <p><strong>Fecha de Ingreso:</strong> {{ docente.fechaIngreso | date:'yyyy-MM-dd' }}</p>
+      <button class="btn btn-secondary mt-3" (click)="router.navigate(['/docentes'])">Volver a la lista</button>
+    </div>
+  </div>
+</div>

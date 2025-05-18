@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 *ngIf="esAdmin" class="mb-0"><i class="bi bi-person-plus-fill me-2"></i> Crear Alumno</h4>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="alumnoForm" (ngSubmit)="onSubmit()">
+        <!-- Usuario -->
+        <div class="mb-3">
+          <label for="usuarioID" class="form-label">Usuario</label>
+          <select class="form-select" formControlName="usuarioID" id="usuarioID">
+            <option value="">-- Selecciona un usuario --</option>
+            <option *ngFor="let usuario of usuariosDisponibles" [value]="usuario.usuarioID">
+              {{ usuario.nombre }}
+            </option>
+          </select>
+          <div *ngIf="alumnoForm.get('usuarioID')?.invalid && alumnoForm.get('usuarioID')?.touched" class="text-danger">
+            Seleccionar un usuario es obligatorio.
+          </div>
+        </div>
+
+        <!-- Fecha de nacimiento -->
+        <div class="mb-3">
+          <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" formControlName="fechaNacimiento" id="fechaNacimiento">
+        </div>
+
+        <!-- Dirección -->
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" class="form-control" formControlName="direccion" id="direccion" placeholder="Ej. Calle Falsa 123">
+          <div *ngIf="alumnoForm.get('direccion')?.invalid && alumnoForm.get('direccion')?.touched" class="text-danger">
+            La dirección es obligatoria.
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary me-2" [disabled]="alumnoForm.invalid">
+            <i class="bi bi-save me-1"></i> Crear Alumno
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="cancelar()">
+            <i class="bi bi-x-circle me-1"></i> Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

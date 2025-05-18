@@ -1,0 +1,16 @@
+/* register.component.css o styles.css */
+.register-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+small {
+  color: red;
+}

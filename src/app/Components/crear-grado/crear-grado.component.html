@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <h3 class="mb-4 text-primary">Crear Grado</h3>
+
+  <form [formGroup]="gradoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        formControlName="nombre"
+      />
+      <div
+        *ngIf="gradoForm.get('nombre')?.invalid && gradoForm.get('nombre')?.touched"
+        class="text-danger"
+      >
+        <span *ngIf="gradoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</span>
+        <span *ngIf="gradoForm.get('nombre')?.errors?.['minlength']">Debe tener al menos 3 caracteres.</span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nivel" class="form-label">Nivel</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nivel"
+        formControlName="nivel"
+      />
+      <div
+        *ngIf="gradoForm.get('nivel')?.invalid && gradoForm.get('nivel')?.touched"
+        class="text-danger"
+      >
+        <span *ngIf="gradoForm.get('nivel')?.errors?.['required']">El nivel es obligatorio.</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="gradoForm.invalid">
+      Crear Grado
+    </button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/grados'])">
+      Cancelar
+    </button>
+  </form>
+</div>

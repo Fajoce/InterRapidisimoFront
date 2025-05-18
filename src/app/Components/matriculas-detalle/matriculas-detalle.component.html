@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div *ngIf="matricula" class="card">
+    <div class="card-header bg-primary text-white">
+      <h4>Detalle de Matrícula</h4>
+    </div>
+    <div class="card-body">
+      <p><strong>ID Matrícula:</strong> {{ matricula.matriculaID }}</p>
+      <p><strong>Alumno:</strong> {{ matricula.nombreAlumno }}</p>
+      <p><strong>Grado:</strong> {{ matricula.gradoAlumno }}</p>
+      <p><strong>Año Lectivo:</strong>{{ matricula.anioLectivo }}</p>
+      <p><strong>Fecha de Matrícula:</strong> {{ matricula.fechaMatricula | date }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger text-center">
+    {{ error }}
+  </div>
+<div class="d-flex justify-content-between mt-3">
+  <button (click)="imprimirPDF()" class="btn btn-primary">
+    <i class="fa fa-print"></i> Imprimir PDF
+  </button>
+  <button class="btn btn-secondary" (click)="router.navigate(['/matriculas'])">
+    <i class="fa fa-arrow-left"></i> Atras
+  </button>
+</div>
+</div>

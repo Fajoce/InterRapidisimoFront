@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-success text-white">
+      <h4 class="mb-0">Crear Nueva Asignación</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="docenteID" class="form-label">Docente ID</label>
+           <div class="mb-3">
+            <select class="form-select" formControlName="docenteID" id="docenteID">
+            <option value="">-- Seleccionar doente --</option>
+            <option *ngFor="let docente of docentesDisponibles" [value]="docente.docenteID">
+              {{ docente.nombre }}
+            </option>
+          </select>          
+        </div>
+      <label for="gradoID" class="form-label">Grado ID</label>
+        <div class="mb-3">
+            <select class="form-select" formControlName="gradoID" id="usuarioID">
+            <option value="">-- Seleccionar grado --</option>
+            <option *ngFor="let grados of gradosDisponibles" [value]="grados.gradoID">
+              {{ grados.nombre }}
+            </option>
+          </select>          
+        </div>
+         <label for="materiaID" class="form-label">Materia ID</label>
+        <div class="mb-3">
+            <select class="form-select" formControlName="materiaID" id="materiaID">
+            <option value="">-- Seleccionar Materia --</option>
+            <option *ngFor="let materia of materiasDisponibles" [value]="materia.materiaID">
+              {{ materia.nombre }}
+            </option>
+          </select>
+          
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+          <i class="bi bi-save"></i> Crear Asignación
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

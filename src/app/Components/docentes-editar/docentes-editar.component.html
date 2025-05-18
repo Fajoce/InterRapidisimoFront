@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h3 class="mb-4">Editar Docente</h3>
+
+  <form [formGroup]="docenteForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="usuarioID" class="form-label">ID del Usuario</label>
+      <input type="number" id="usuarioID" formControlName="usuarioID" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="especialidad" class="form-label">Especialidad</label>
+      <input type="text" id="especialidad" formControlName="especialidad" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fechaIngreso" class="form-label">Fecha de Ingreso</label>
+      <input type="date" id="fechaIngreso" formControlName="fechaIngreso" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="cancelar()">Cancelar</button>
+  </form>
+</div>

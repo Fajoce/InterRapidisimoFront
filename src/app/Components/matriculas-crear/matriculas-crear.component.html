@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2>Registrar Matrícula</h2>
+  <form [formGroup]="matriculaForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="alumnoID" class="form-label">ID del Alumno</label>
+      <input type="number" class="form-control" formControlName="alumnoID" />
+    </div>
+
+    <div class="mb-3">
+      <label for="gradoID" class="form-label">ID del Grado</label>
+      <input type="number" class="form-control" formControlName="gradoID" />
+    </div>
+
+    <div class="mb-3">
+      <label for="anioLectivo" class="form-label">Año Lectivo</label>
+      <input type="number" class="form-control" formControlName="anioLectivo" />
+    </div>
+
+    <div class="mb-3">
+      <label for="fechaMatricula" class="form-label">Fecha de Matrícula</label>
+      <input type="date" class="form-control" formControlName="fechaMatricula" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="matriculaForm.invalid">Guardar</button>
+    <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/matriculas'])">Cancelar</button>
+  </form>
+</div>

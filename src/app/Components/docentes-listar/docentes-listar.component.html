@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <div class="mb-3 text-end">
+  <button *ngIf="esAdmin" class="btn btn-success" (click)="crearDocente()">
+    <i class="bi bi-plus-circle me-2"></i>Crear Nuevo Docente
+  </button>
+  <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/dashboard'])">Atras</button>
+</div>
+  <h2 class="mb-4 text-primary">Listado de Docentes</h2>
+
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="table-primary text-center">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especialidad</th>
+        <th>Fecha Ingreso</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let docente of docentes" class="text-center">
+        <td>{{ docente.docenteID }}</td>
+        <td>{{ docente.nombreDocente }}</td>
+        <td>{{ docente.especialidad }}</td>
+        <td>{{ docente.fechaIngreso | date: 'shortDate' }}</td>
+        <td>
+                <a [routerLink]="['/docentes/detalle', docente.docenteID]" class="btn btn-outline-info btn-sm">
+  Ver Detalle
+</a>
+          <button *ngIf="esAdmin" class="btn btn-warning btn-sm me-2" (click)="irAEditar(docente.docenteID)">Editar</button>
+          <button *ngIf="esAdmin" class="btn btn-danger btn-sm" (click)="eliminarDocente(docente.docenteID)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="docentes.length === 0" class="alert alert-warning text-center">
+    No hay docentes registrados.
+  </div>
+

@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h3 class="mb-4">Crear Nuevo Docente</h3>
+
+  <form [formGroup]="docenteForm" (ngSubmit)="onSubmit()">
+ 
+    <div class="mb-3">
+    <select class="form-select" formControlName="usuarioID" id="usuarioID">
+            <option value="">-- Selecciona un usuario --</option>
+            <option *ngFor="let docente of docentesDisponibles" [value]="docente.docenteID">
+              {{ docente.nombre }}
+            </option>
+          </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="especialidad" class="form-label">Especialidad</label>
+      <input type="text" id="especialidad" formControlName="especialidad" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fechaIngreso" class="form-label">Fecha de Ingreso</label>
+      <input type="date" id="fechaIngreso" formControlName="fechaIngreso" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelar()">
+            <i class="bi bi-x-circle me-1"></i> Cancelar
+          </button>
+  </form>
+</div>

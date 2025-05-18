@@ -1,0 +1,38 @@
+<div class="container mt-4">
+   <div class="mb-3 text-end">
+      <button *ngIf="esAdmin" class="btn btn-success" [routerLink]="['/matriculas/crear']">Crear Matricula</button>
+  <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/dashboard'])">Atras</button>
+  </div>
+  <h2>Listado de Matrículas</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <table class="table table-striped mt-3" *ngIf="matriculas.length > 0">
+    <thead class="table-primary text-center">
+      <tr>
+        <th>ID</th>
+        <th>Alumno</th>
+        <th>Grado</th>
+        <th>Año Lectivo</th>
+        <th>Fecha de Matrícula</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let matricula of matriculas">
+        <td>{{ matricula.matriculaID }}</td>
+        <td>{{ matricula.nombreAlumno }}</td>
+        <td>{{ matricula.gradoAlumno }}</td>
+        <td>{{ matricula.anioLectivo }}</td>
+        <td>{{ matricula.fechaMatricula | date: 'yyyy-MM-dd' }}</td>
+        <td>
+        <a [routerLink]="['/matriculas/detalle', matricula.matriculaID]" class="btn btn-info btn-sm">Ver</a>
+        <!--  <button class="btn btn-sm btn-warning me-1" (click)="editar(matricula.matriculaID)">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="eliminar(matricula.matriculaID)">Eliminar</button>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="matriculas.length === 0 && !error" class="text-muted">
+    No hay matrículas registradas.
+  </div>
+</div>

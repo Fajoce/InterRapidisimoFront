@@ -1,0 +1,57 @@
+
+<div class="container mt-5">
+<div class="mb-4 d-flex justify-content-end gap-2 flex-wrap">
+  <button *ngIf="esAdmin" class="btn btn-success" (click)="crearAlumno()">
+    <i class="bi bi-plus-circle me-1"></i> Crear Nuevo Alumno
+  </button>
+
+  <button class="btn btn-success" (click)="exportarExcel()">
+    <i class="bi bi-file-earmark-excel-fill me-1"></i> Exportar a Excel
+  </button>
+
+  <button type="button" class="btn btn-secondary" (click)="router.navigate(['/dashboard'])">
+    <i class="bi bi-arrow-left me-1"></i> Atrás
+  </button>
+</div>
+  <h2 class="mb-4 text-primary">Listado de Alumnos</h2>
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="table-primary text-center">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Fecha Nacimiento</th>
+        <th>Dirección</th>
+        <th>Grado Id</th>
+        <th>Grado Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{ alumno.alumnoID }}</td>
+        <td>{{ alumno.alumnoNombre }}</td>
+        <td>{{ alumno.alumnoEmail }}</td>
+        <td>{{ alumno.fechaNacimiento | date:'yyyy-MM-dd' }}</td>
+        <td>{{ alumno.direccion }}</td>
+        <td>{{ alumno.gradoID }}</td>
+        <td>{{ alumno.gradoNombre }}</td>
+        <td>
+          <a [routerLink]="['/alumnos/detalle', alumno.alumnoID]" class="btn btn-outline-info btn-sm">
+  Ver Detalle
+</a>
+          <button *ngIf="esAdmin" class="btn btn-warning btn-sm me-2" (click)="editar(alumno.alumnoID)">Editar</button>
+          <button *ngIf="esAdmin" class="btn btn-danger btn-sm" (click)="eliminar(alumno.alumnoID)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="alumnos.length === 0" class="text-center text-muted">
+    No hay alumnos registrados.
+  </div>
+ 
+</div>
+
+

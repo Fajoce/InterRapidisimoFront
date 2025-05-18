@@ -1,0 +1,12 @@
+
+  .hover-effect:hover {
+    background-color: #495057;
+    transition: all 0.3s ease;
+    
+  }
+  .nav-link i {
+    transition: transform 0.3s ease;
+  }
+  .nav-link:hover i {
+    transform: scale(1.2);
+  }

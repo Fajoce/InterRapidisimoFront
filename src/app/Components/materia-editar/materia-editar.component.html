@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <h3>Editar Materia</h3>
+  <form [formGroup]="materiaForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" />
+      <div *ngIf="materiaForm.get('nombre')?.invalid && materiaForm.get('nombre')?.touched" class="text-danger">
+        El nombre es obligatorio.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="materiaForm.invalid">Actualizar</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/materias'])">Cancelar</button>
+  </form>
+</div>

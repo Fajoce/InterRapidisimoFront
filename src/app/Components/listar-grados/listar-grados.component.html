@@ -1,0 +1,28 @@
+<div class="container mt-4">
+   <div class="mb-3 text-end">
+     <button class="btn btn-success" (click)="crearGrado()">➕ Agregar Grado</button>
+<button type="button" class="btn btn-secondary mx-2" (click)="router.navigate(['/dashboard'])">Atras</button>
+ </div>
+<h2 class="mb-4 text-primary">Listado de Grados</h2>
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-primary text-center">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Nivel</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grado of grados">
+        <td>{{ grado.gradoID }}</td>
+        <td>{{ grado.nombre }}</td>
+        <td>{{ grado.nivel }}</td>
+        <td>
+           <button class="btn btn-warning btn-sm me-2" [routerLink]="['/grados', grado.gradoID, 'editar']">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="eliminar(grado.gradoID)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

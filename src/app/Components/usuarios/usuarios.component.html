@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Registro de Usuario</h3>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <!-- Nombre -->
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input
+                id="nombre"
+                class="form-control"
+                formControlName="nombre"
+                type="text"
+                [ngClass]="{ 'is-invalid': registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched }"
+              />
+              <div class="invalid-feedback">
+                Nombre es obligatorio.
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                id="email"
+                class="form-control"
+                formControlName="email"
+                type="email"
+                [ngClass]="{ 'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched }"
+              />
+              <div class="invalid-feedback">
+                Email inválido.
+              </div>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input
+                id="password"
+                class="form-control"
+                formControlName="passwordHash"
+                type="password"
+                [ngClass]="{ 'is-invalid': registerForm.get('passwordHash')?.invalid && registerForm.get('passwordHash')?.touched }"
+              />
+              <div class="invalid-feedback">
+                Mínimo 6 caracteres.
+              </div>
+            </div>
+
+            <!-- Rol -->
+            <div class="mb-3">
+              <label for="rol" class="form-label">Rol</label>
+              <select id="rol" class="form-select" formControlName="rol">
+                <option value="Alumno">Alumno</option>
+                <option value="Docente">Docente</option>
+              </select>
+            </div>
+
+            <!-- Botón -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+                Registrarse
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

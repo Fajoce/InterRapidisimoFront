@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div *ngIf="usuario" class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Mi Perfil</h4>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ usuario.usuarioID }}</p>
+      <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+      <p><strong>Email:</strong> {{ usuario.email }}</p>
+      <p><strong>Rol:</strong> {{ usuario.rol }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="!usuario">
+    <p class="text-center text-muted">Cargando información del usuario...</p>
+  </div>
+  <div class="text-center mt-4">
+  <button class="btn btn-secondary" (click)="volverAlMenu()">
+    <i class="bi bi-arrow-left-circle me-2"></i>
+    Volver al Menú Principal
+  </button>
+</div>
+</div>
