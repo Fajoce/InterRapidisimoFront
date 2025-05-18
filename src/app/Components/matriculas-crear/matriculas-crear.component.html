@@ -3,12 +3,26 @@
   <form [formGroup]="matriculaForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="alumnoID" class="form-label">ID del Alumno</label>
-      <input type="number" class="form-control" formControlName="alumnoID" />
+      <div class="mb-3">
+            <select class="form-select" formControlName="gradoID" id="usuarioID">
+            <option value="">-- Seleccionar alumno --</option>
+            <option *ngFor="let student of alumnosDisponibles" [value]="student.alumnoID">
+              {{ student.nombre }}
+            </option>
+          </select>          
+        </div>
     </div>
 
     <div class="mb-3">
-      <label for="gradoID" class="form-label">ID del Grado</label>
-      <input type="number" class="form-control" formControlName="gradoID" />
+       <label for="gradoID" class="form-label">Grado ID</label>
+        <div class="mb-3">
+            <select class="form-select" formControlName="gradoID" id="usuarioID">
+            <option value="">-- Seleccionar grado --</option>
+            <option *ngFor="let grados of gradosDisponibles" [value]="grados.gradoID">
+              {{ grados.nombre }}
+            </option>
+          </select>          
+        </div>
     </div>
 
     <div class="mb-3">

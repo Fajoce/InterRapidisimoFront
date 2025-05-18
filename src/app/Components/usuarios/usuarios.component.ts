@@ -39,6 +39,7 @@ onSubmit(): void {
       });
     }
   }
-
-
+  goToLogin() {
+  this.router.navigate(['/login']); // Regresa al login
+}
 }

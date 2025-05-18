@@ -3,14 +3,19 @@
 
   <form [formGroup]="materiaForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label for="name" class="form-label">Nombre de la materia</label>
-      <input type="text" id="name" class="form-control" formControlName="name" />
-      <div *ngIf="materiaForm.get('name')?.touched && materiaForm.get('name')?.invalid" class="text-danger">
-        El nombre es obligatorio y debe tener al menos 3 caracteres.
-      </div>
+      <label for="nombre" class="form-label">Nombre de la materia</label>
+      <input type="text" id="nombre" class="form-control" formControlName="Nombre" 
+      [ngClass]="{
+      'is-invalid': materiaForm.get('Nombre')?.invalid && materiaForm.get('Nombre')?.touched
+    }"
+  />
+  <div *ngIf="materiaForm.get('Nombre')?.errors && materiaForm.get('Nombre')?.touched" class="invalid-feedback">
+    <div *ngIf="materiaForm.get('Nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+    <div *ngIf="materiaForm.get('Nombre')?.errors?.['minlength']">Debe tener al menos 7 caracteres.</div>
     </div>
 
     <button class="btn btn-success" type="submit" [disabled]="materiaForm.invalid">Guardar</button>
     <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/materias'])">Cancelar</button>
+    </div>
   </form>
 </div>

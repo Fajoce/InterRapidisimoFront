@@ -50,8 +50,8 @@ private apiUrl = 'https://localhost:7030/api/Alumnos';
   }
 
   eliminarAlumno(id: number): Observable<boolean> {
-          const token = localStorage.getItem('jwt_token');
-
+  debugger;
+  const token = localStorage.getItem('jwt_token');
   const headers = new HttpHeaders({
     Authorization: `Bearer ${token}`
   });

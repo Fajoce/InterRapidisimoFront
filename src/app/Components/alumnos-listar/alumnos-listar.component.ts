@@ -26,6 +26,7 @@ export class AlumnosListarComponent implements OnInit {
   ngOnInit(): void {
     this.esAdmin = this.authService.isAdmin();
     this.obtenerAlumnos();
+  
   }
 
   obtenerAlumnos(): void {
@@ -44,6 +45,7 @@ export class AlumnosListarComponent implements OnInit {
   }
 
   eliminar(id: number): void {
+     this.esAdmin = this.authService.isAdmin();
     if (confirm('¿Estás seguro de eliminar este alumno?')) {
       this.alumnosService.eliminarAlumno(id).subscribe({
         next: () => this.obtenerAlumnos(),

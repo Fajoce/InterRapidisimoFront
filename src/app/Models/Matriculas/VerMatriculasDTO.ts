@@ -22,3 +22,8 @@ export interface ActualizarMatriculaDTO {
   anioLectivo: number;
   fechaMatricula: Date;
 }
+
+export interface SelectAlumnosDTO {
+  alumnoID: number;
+  nombre: string;
+}

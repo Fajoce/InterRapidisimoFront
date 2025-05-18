@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { VerMateriasDTO, CreateMateriasDTO, ActualizarMateriaDTO } from '.././Models/Materia/VerMateriasDTO'
 
@@ -13,22 +13,42 @@ export class MateriaService {
 
 
   obtenerTodas(): Observable<VerMateriasDTO[]> {
-    return this.http.get<VerMateriasDTO[]>(this.apiUrl);
+             const token = localStorage.getItem('jwt_token');
+    const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+    return this.http.get<VerMateriasDTO[]>(this.apiUrl, {headers});
   }
 
   obtenerPorId(id: number): Observable<VerMateriasDTO> {
-    return this.http.get<VerMateriasDTO>(`${this.apiUrl}/${id}`);
+             const token = localStorage.getItem('jwt_token');
+    const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+    return this.http.get<VerMateriasDTO>(`${this.apiUrl}/${id}`,{headers});
   }
 
   crear(materia: CreateMateriasDTO): Observable<boolean> {
-    return this.http.post<boolean>(this.apiUrl, materia);
+             const token = localStorage.getItem('jwt_token');
+    const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+    return this.http.post<boolean>(this.apiUrl,materia, {headers});
   }
 
   actualizar(materia: ActualizarMateriaDTO): Observable<boolean> {
-    return this.http.put<boolean>(this.apiUrl+'/update', materia);
+             const token = localStorage.getItem('jwt_token');
+    const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+    return this.http.put<boolean>(this.apiUrl+'/update', materia, {headers});
   }
 
   eliminar(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.apiUrl}/${id}`);
+             const token = localStorage.getItem('jwt_token');
+    const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+    return this.http.delete<boolean>(`${this.apiUrl}/${id}`, {headers});
   }
 }

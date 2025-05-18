@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MateriaService } from '../../Services/materia.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CreateMateriasDTO } from '../../Models/Materia/VerMateriasDTO';
 
 @Component({
   selector: 'app-materias-crear',
@@ -21,22 +22,29 @@ export class MateriasCrearComponent implements OnInit {
 
   ngOnInit(): void {
     this.materiaForm = this.fb.group({
-      name: ['', [Validators.required]]
+      Nombre: ['', [Validators.required, Validators.minLength(7)]]
     });
   }
 
   onSubmit(): void {
     debugger
     if (this.materiaForm.valid) {
-      this.materiaService.crear(this.materiaForm.value).subscribe({
+       const nuevamateria: CreateMateriasDTO = this.materiaForm.value;
+      this.materiaService.crear(nuevamateria).subscribe({
         next: () => {
           alert('Materia creada correctamente');
           this.router.navigate(['/materias']);
         },
         error: (err) => {
-          alert('Error al crear materia'+ err);
-        }
-      });
+          if (err.status === 400 && err.error?.errors) {
+            console.log(this.materiaForm.value)
+      const errores = err.error.errors;
+      console.error('Errores de validación:', errores);
+          alert('Error al crear materia: ' + JSON.stringify(err.error));
+                } else {
+      console.error('Otro error:', err);
+    }
+    }});
     }
   }
 
