@@ -15,7 +15,7 @@ en la base de datos debe existir un Administardor: usuario: fajoce@gmail.com - c
 - Ver Alumnos matriculados
 ![image](https://github.com/user-attachments/assets/6da792c2-582c-4fdd-bacc-ca1a3aea5ab5)
 
-- Crear Alumnos
+- Crear Alumno
 ![image](https://github.com/user-attachments/assets/3c556d0d-babc-4ba8-81cc-525f2aaf1fed)
 
 - Editar
