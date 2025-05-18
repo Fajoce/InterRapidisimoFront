@@ -24,7 +24,22 @@ en la base de datos debe existir un Administardor: usuario: fajoce@gmail.com - c
 - ver Detalle
 ![image](https://github.com/user-attachments/assets/29be6fed-cdf1-4c29-a9fc-050d264308dc)
 
-- Eliminar 
+- Eliminar
+  # Lo mismo podras hacer con el menu docente
+  ![image](https://github.com/user-attachments/assets/6870c97a-97b0-46fc-aca8-f82b9ec444ce)
+
+# Igual que con las Materias
+![image](https://github.com/user-attachments/assets/85b71f01-4a09-4e4c-bc1f-37816fed2445)
+
+# Matriculas
+![image](https://github.com/user-attachments/assets/6c3e5e4d-823f-4e8c-8f94-c259ad12d5b6)
+
+# Grados
+![image](https://github.com/user-attachments/assets/e186e6eb-46f8-4d68-a099-9466bccab4a6)
+
+# Asignaciones
+![image](https://github.com/user-attachments/assets/46dbb48e-e786-4384-b2b7-84aff5373ce9)
+
 
 
 
