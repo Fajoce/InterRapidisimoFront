@@ -22,22 +22,18 @@
         <td>{{ grade.fechaRegistro | date: 'short' }}</td>
         <td>{{ grade.observacion }}</td>
         <td>
-          <div class="btn-group" role="group">
-            <button class="btn btn-outline-primary btn-sm" (click)="ver(grade)">
-              👁 Ver
-            </button>
-            <button class="btn btn-outline-warning btn-sm" (click)="editar(grade)">
-              ✏️ Editar
-            </button>
-            <button
-              class="btn btn-outline-danger btn-sm"
-              (click)="eliminar(grade.calificacionID)"
-            >
-              🗑️ Eliminar
-            </button>
-          </div>
+          <a [routerLink]="['/calificaciones/detalle', grade.calificacionID]" class="btn btn-outline-info btn-sm">
+  Ver Detalle
+</a>
+          <button *ngIf="esAdmin" class="btn btn-warning btn-sm me-2" (click)="editar(grade.calificacionID)">Editar</button>
+          <button *ngIf="esAdmin" class="btn btn-danger btn-sm" (click)="eliminar(grade.calificacionID)">Eliminar</button>
         </td>
       </tr>
     </tbody>
-  </table>  
+  </table>
+
+  <div *ngIf="calificaciones.length === 0" class="text-center text-muted">
+    No hay alumnos registrados.
+  </div>
+ 
 </div>
