@@ -25,6 +25,7 @@ import { CrearGradoComponent } from './Components/crear-grado/crear-grado.compon
 import { EditarGradoComponent } from './Components/editar-grado/editar-grado.component';
 import { VerAsignacionesComponent } from './Components/ver-asignaciones/ver-asignaciones.component';
 import { CrearAsignacionComponent } from './Components/crear-asignacion/crear-asignacion.component';
+import { ListarCalificacionesComponent } from './Components/listar-calificaciones/listar-calificaciones.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -56,5 +57,7 @@ export const routes: Routes = [
   { path: 'grados/:id/editar', component: EditarGradoComponent },
   { path: 'asignaciones', component: VerAsignacionesComponent },
   { path: 'asignaciones/crear', component: CrearAsignacionComponent },
+  { path: 'calificaciones', component: ListarCalificacionesComponent },
+   { path: 'calificaciones/crear', component: ListarCalificacionesComponent },
   { path: 'logout', component: LogOutComponent },
 ];

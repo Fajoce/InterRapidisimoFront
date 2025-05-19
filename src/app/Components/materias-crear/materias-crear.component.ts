@@ -42,7 +42,7 @@ export class MateriasCrearComponent implements OnInit {
       console.error('Errores de validación:', errores);
           alert('Error al crear materia: ' + JSON.stringify(err.error));
                 } else {
-      console.error('Otro error:', err);
+      alert('Materia existente');
     }
     }});
     }

@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h2>Crear Calificacion</h2>
+
+  <form [formGroup]="calificacionForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="calificacionID" class="form-label">Calificacion ID</label>
+      <input type="text" id="calificacionID" class="form-control" formControlName="calificacionID" 
+      [ngClass]="{
+      'is-invalid': calificacionForm.get('calificacionID')?.invalid && calificacionForm.get('calificacionID')?.touched
+    }"
+  />
+  <div *ngIf="calificacionForm.get('calificacionID')?.errors && calificacionForm.get('calificacionID')?.touched" class="invalid-feedback">
+    <div *ngIf="calificacionForm.get('calificacionID')?.errors?.['required']">El nombre es obligatorio.</div>
+    <div *ngIf="calificacionForm.get('calificacionID')?.errors?.['minlength']">Debe tener al menos 7 caracteres.</div>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="calificacionForm.invalid">Guardar</button>
+    <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/materias'])">Cancelar</button>
+    </div>
+  </form>
+
+</div>

@@ -50,12 +50,23 @@ export class CrearAsignacionComponent {
   onSubmit(): void {
     if (this.form.invalid) return;
 
-    const nuevaAsignacion: CreateAsignacionDTO = this.form.value;
-    this.asignacionesService.crear(nuevaAsignacion).subscribe(() => {
-      alert('Asignación creada con éxito');
-      this.router.navigate(['/asignaciones']); // Ajusta según tu ruta
-    });
-  }
+  const nuevaAsignacion: CreateAsignacionDTO = this.form.value;
+
+  this.asignacionesService.crear(nuevaAsignacion).subscribe(
+    (success) => {
+      if (success) {
+        alert('Asignación creada con éxito');
+        this.router.navigate(['/asignaciones']); // Ajusta según tu ruta
+      } else {
+        alert('Error: Esta asignación ya existe. No se puede duplicar.');
+      }
+    },
+    (error) => {
+      console.error('Error en la solicitud', error);
+      alert('No se puede asignar la misma materia al mismo docente o No se pueden asignar mas de tres materias al mismo docente');
+    }
+  );
+}
       cancelar(): void {
   this.router.navigate(['/asignaciones']);
 }
