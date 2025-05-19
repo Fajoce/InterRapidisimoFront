@@ -7,6 +7,7 @@ import { SelectGradosDTO } from '../../Models/Asignaciones/CreateAsignacionDTO';
 import { AsignacionesService } from '../../Services/asignaciones.service';
 import { CommonModule } from '@angular/common';
 import { SelectAlumnosDTO } from '../../Models/Matriculas/VerMatriculasDTO';
+import { CreateMatriculaDTO } from '../../Models/Matriculas/VerMatriculasDTO';
 
 
 @Component({
@@ -49,7 +50,8 @@ export class MatriculasCrearComponent implements OnInit {
 
   onSubmit(): void {
     if (this.matriculaForm.valid) {
-      this.matriculaService.create(this.matriculaForm.value).subscribe({
+       const nuevamateria: CreateMatriculaDTO = this.matriculaForm.value;
+      this.matriculaService.create(nuevamateria).subscribe({
         next: () => {
           alert('Matrícula registrada correctamente');
           this.router.navigate(['/matriculas']);

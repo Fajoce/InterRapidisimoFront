@@ -4,7 +4,7 @@
     <div class="mb-3">
       <label for="alumnoID" class="form-label">ID del Alumno</label>
       <div class="mb-3">
-            <select class="form-select" formControlName="gradoID" id="usuarioID">
+            <select class="form-select" formControlName="alumnoID" id="usuarioID">
             <option value="">-- Seleccionar alumno --</option>
             <option *ngFor="let student of alumnosDisponibles" [value]="student.alumnoID">
               {{ student.nombre }}
@@ -16,7 +16,7 @@
     <div class="mb-3">
        <label for="gradoID" class="form-label">Grado ID</label>
         <div class="mb-3">
-            <select class="form-select" formControlName="gradoID" id="usuarioID">
+            <select class="form-select" formControlName="gradoID" id="gradoID">
             <option value="">-- Seleccionar grado --</option>
             <option *ngFor="let grados of gradosDisponibles" [value]="grados.gradoID">
               {{ grados.nombre }}
@@ -35,7 +35,7 @@
       <input type="date" class="form-control" formControlName="fechaMatricula" />
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="matriculaForm.invalid">Guardar</button>
+    <button type="submit" class="btn btn-primary" >Guardar</button>
     <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/matriculas'])">Cancelar</button>
   </form>
 </div>
